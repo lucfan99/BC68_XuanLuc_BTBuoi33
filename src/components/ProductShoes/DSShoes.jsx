@@ -1,16 +1,21 @@
-const DSShoes = ({ propShoes }) => {
+const DSShoes = (propShoes) => {
   return (
-    <div className="grid grid-cols-3">
-      {propShoes.arrSP.map((item, index) => {
+    <div className="grid grid-cols-3 pt-10">
+      {propShoes.arrShoes.map((item, index) => {
         return (
-          <div>
-            <img className="w-full" src={item.hinhAnh} alt="" />
-            <h3 className="text-xl">{item.tenSP}</h3>
+          <div className="border-black border mx-2 my-5 text-center rounded-md overflow-hidden">
+            <img
+              className="w-full  hover:scale-105 mb-5"
+              src={item.image}
+              alt=""
+            />
+            <h3 className="text-xl">{item.name}</h3>
+            <h2 className="text-xs">{item.price} $</h2>
             <button
               onClick={() => {
-                props.layDuLieuDT(item);
+                propShoes.LayDuLieuShoes(item);
               }}
-              className="bg-green-500 text-white rounded-md py-2 px-5"
+              className="bg-black text-white rounded-md py-2 px-5 mb-4"
             >
               Xem chi tiết
             </button>

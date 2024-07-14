@@ -144,10 +144,29 @@ const RenderShoes = () => {
     },
   ];
   let [shoes, setShoes] = useState();
+
+  let LayDuLieuShoes = (shoes) => {
+    setShoes(shoes);
+  };
+  console.log(shoes);
+
   return (
-    <div>
-      <h2 className="text-center text-2xl">Shoes Shop</h2>
-      <DSShoes arrSP={arrShoes} />
+    <div className="relative">
+      <div className=" bg-cyan-200">
+        <div className="fixed top-28 left-0">
+          {shoes && (
+            <div className="flex ">
+              <div>
+                <img className="h-36 bg-slate-100" src={shoes.image} alt="" />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="mt-6">
+        <h2 className="text-center text-5xl font-bold">Shoes Shop</h2>
+        <DSShoes arrShoes={arrShoes} LayDuLieuShoes={LayDuLieuShoes} />
+      </div>
     </div>
   );
 };
