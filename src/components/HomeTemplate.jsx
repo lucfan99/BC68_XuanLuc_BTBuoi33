@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  // UploadOutlined,
+  // UserOutlined,
+  // VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
-import ChiTietShoes from "./ProductShoes/ChiTietShoes";
+
 const { Header, Sider, Content } = Layout;
 
 const HomeTemplate = () => {
+  const { shoes } = useSelector((state) => state.chiTietShoesSlice);
+
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -60,8 +63,8 @@ const HomeTemplate = () => {
                 height: 64,
               }}
             />
-            <div className="fixed pl-20 z-10 w-full bg-cyan-300">
-              <ChiTietShoes />
+            <div className="fixed pl-20 z-10 w-full h-auto pt-2 bg-cyan-300">
+              <img className="w-10" src={shoes.image} alt="" />
             </div>
           </Header>
           <Content

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities; /*# sourceMappingURL=index.css.map */
+:where(.css-dev-only-do-not-override-98ntnt).ant-modal
+  .ant-modal-footer
+  > .ant-btn
+  + .ant-btn {
+  display: none;
+}
